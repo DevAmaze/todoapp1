@@ -26,13 +26,12 @@ return(
 <View  style={styles.formContainer}>
 <TextInput style={styles.inputArea}
 value={this.state.newTodo}
-onChange = {(text=>this.setState({ newTodo: text 
-}))}
+onChange = {text=>this.setState({ newTodo: text })}
  />
-<text style={styles.addButton}>Add</text>
+<Text style={styles.addButton}>Add</Text>
 </View>
 <ScrollView style={styles.todosListContainer}>
-{ this.state.todos.length != 0 ?
+{ this.state.todos.length != 0 &&
 this.state.todos.map(function(todo, index){
 return(
 <View style={styles.todoItem} key={index}>
@@ -41,13 +40,12 @@ return(
 </View>
 )
 })
-
-:
-{this:state.todos.length ==0 &&
-  <View>
+}
+{this.state.todos.length == 0 &&
+<View>
 <Text>No todos to show</Text>
 </View>
-}}
+}
 </ScrollView>
 </View>
 )
@@ -63,7 +61,7 @@ inputArea: {
 borderColor: '#cccccc',
 borderWidth: 1,
 paddingHorizontal: 10,
-paddingVertial: 5,
+paddingVertical: 5,
 borderRadius:  5,
 width: '80%'
 },
